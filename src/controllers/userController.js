@@ -153,12 +153,10 @@ export const postEdit = async (req, res) => {
     file,
   } = req;
 
-
-
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file? file.path : avatarUrl,
+      avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
       username,
@@ -205,4 +203,8 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/users/logout");
 };
 
-export const see = (req, res) => res.send("See User");
+export const see = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  return res.render("users/profile", { pageTitle: user.name, user });
+};
