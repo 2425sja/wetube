@@ -1,6 +1,8 @@
 extends base.pug
 
 block content
+    div 
+        button#startBtn Start Recording
     if errorMessage 
         span=errorMessage
     form(method="POST",enctype="multipart/form-data" )
@@ -11,3 +13,5 @@ block content
         input(placeholder="Hashtags, separated by coma", required, type="text", name="hashtags" )
         input(value="Save",type="submit")
 //- input에는 이름을 꼭 붙여주어야 바디로 받아올수 있음.
+block scripts
+    script(src="/static/js/recorder.js") 
