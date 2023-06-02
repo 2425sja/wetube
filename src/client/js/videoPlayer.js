@@ -119,16 +119,22 @@ videoContainer.addEventListener("mouseleave", handleMouseleave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 
-//Homework
-video.addEventListener("click", handlePlayClick);
-document.addEventListener("keyup", (event) => {
-  if (event.code === "Space") {
-    handlePlayClick();
-  }
-});
+// // Homework
+// video.addEventListener("click", handlePlayClick);
+// document.addEventListener("keyup", (event) => {
+//   if (event.code === "Space") {
+//     handlePlayClick();
+//   }
+// });
 
-document.addEventListener("keyup", (event) => {
-  if (event.key === "m") {
-    handleMuteClick();
+// document.addEventListener("keyup", (event) => {
+//   if (event.key === "m") {
+//     handleMuteClick();
+//   }
+// });
+
+document.addEventListener("keypress", (event) => {
+  if (event.code === "Space" && event.target.id !== "textarea") {
+    handlePlayClick();
   }
 });
